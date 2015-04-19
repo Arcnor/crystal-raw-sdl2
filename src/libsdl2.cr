@@ -4,6 +4,18 @@
 lib LibSDL2
 	
 	# Types & Classes #
+
+	@[Flags]
+	enum SDL_InitFlags
+		SDL_INIT_TIMER = 0x00000001_u32
+		SDL_INIT_AUDIO = 0x00000010_u32
+		SDL_INIT_VIDEO = 0x00000020_u32
+		SDL_INIT_JOYSTICK = 0x00000200_u32
+		SDL_INIT_HAPTIC = 0x00001000_u32
+		SDL_INIT_GAMECONTROLLER = 0x00002000_u32
+		SDL_INIT_EVENTS = 0x00004000_u32
+		SDL_INIT_NOPARACHUTE = 0x00100000_u32
+	end
 	
 	struct SDL_iconv_t2
 	end
@@ -1053,12 +1065,14 @@ lib LibSDL2
 	end
 	
 	alias SDL_LogOutputFunction = Void*, Int32, SDL_LogPriority, UInt8* -> Void
+	@[Flags]
 	enum SDL_MessageBoxFlags
 		SDL_MESSAGEBOX_ERROR = 16,
 		SDL_MESSAGEBOX_WARNING = 32,
 		SDL_MESSAGEBOX_INFORMATION = 64
 	end
 	
+	@[Flags]
 	enum SDL_MessageBoxButtonFlags
 		SDL_MESSAGEBOX_BUTTON_RETURNKEY_DEFAULT = 1,
 		SDL_MESSAGEBOX_BUTTON_ESCAPEKEY_DEFAULT = 2
@@ -1090,7 +1104,7 @@ lib LibSDL2
 	end
 	
 	struct SDL_MessageBoxData
-		flags : UInt32
+		flags : SDL_MessageBoxFlags
 		window : SDL_Window*
 		title : UInt8*
 		message : UInt8*
@@ -1107,6 +1121,7 @@ lib LibSDL2
 		SDL_POWERSTATE_CHARGED
 	end
 	
+	@[Flags]
 	enum SDL_RendererFlags
 		SDL_RENDERER_SOFTWARE = 1,
 		SDL_RENDERER_ACCELERATED = 2,
@@ -1116,7 +1131,7 @@ lib LibSDL2
 	
 	struct SDL_RendererInfo
 		name : UInt8*
-		flags : UInt32
+		flags : SDL_RendererFlags
 		num_texture_formats : UInt32
 		texture_formats : UInt32[16]
 		max_texture_width : Int32
@@ -1766,7 +1781,7 @@ lib LibSDL2
 	fun createWindowFrom = SDL_CreateWindowFrom(data : Void*) : SDL_Window*
 	fun getWindowID = SDL_GetWindowID(window : SDL_Window*) : UInt32
 	fun getWindowFromID = SDL_GetWindowFromID(id : UInt32) : SDL_Window*
-	fun getWindowFlags = SDL_GetWindowFlags(window : SDL_Window*) : UInt32
+	fun getWindowFlags = SDL_GetWindowFlags(window : SDL_Window*) : SDL_WindowFlags
 	fun setWindowTitle = SDL_SetWindowTitle(window : SDL_Window*, title : UInt8*) : Void
 	fun getWindowTitle = SDL_GetWindowTitle(window : SDL_Window*) : UInt8*
 	fun setWindowIcon = SDL_SetWindowIcon(window : SDL_Window*, icon : SDL_Surface*) : Void
@@ -1971,12 +1986,12 @@ lib LibSDL2
 	fun logGetOutputFunction = SDL_LogGetOutputFunction(callback : SDL_LogOutputFunction*, userdata : Void**) : Void
 	fun logSetOutputFunction = SDL_LogSetOutputFunction(callback : SDL_LogOutputFunction, userdata : Void*) : Void
 	fun showMessageBox = SDL_ShowMessageBox(messageboxdata : SDL_MessageBoxData*, buttonid : Int32*) : Int32
-	fun showSimpleMessageBox = SDL_ShowSimpleMessageBox(flags : UInt32, title : UInt8*, message : UInt8*, window : SDL_Window*) : Int32
+	fun showSimpleMessageBox = SDL_ShowSimpleMessageBox(flags : SDL_MessageBoxFlags, title : UInt8*, message : UInt8*, window : SDL_Window*) : Int32
 	fun getPowerInfo = SDL_GetPowerInfo(secs : Int32*, pct : Int32*) : SDL_PowerState
 	fun getNumRenderDrivers = SDL_GetNumRenderDrivers() : Int32
 	fun getRenderDriverInfo = SDL_GetRenderDriverInfo(index : Int32, info : SDL_RendererInfo*) : Int32
 	fun createWindowAndRenderer = SDL_CreateWindowAndRenderer(width : Int32, height : Int32, window_flags : UInt32, window : SDL_Window**, renderer : SDL_Renderer**) : Int32
-	fun createRenderer = SDL_CreateRenderer(window : SDL_Window*, index : Int32, flags : UInt32) : SDL_Renderer*
+	fun createRenderer = SDL_CreateRenderer(window : SDL_Window*, index : Int32, flags : SDL_RendererFlags) : SDL_Renderer*
 	fun createSoftwareRenderer = SDL_CreateSoftwareRenderer(surface : SDL_Surface*) : SDL_Renderer*
 	fun getRenderer = SDL_GetRenderer(window : SDL_Window*) : SDL_Renderer*
 	fun getRendererInfo = SDL_GetRendererInfo(renderer : SDL_Renderer*, info : SDL_RendererInfo*) : Int32
@@ -2035,9 +2050,9 @@ lib LibSDL2
 	fun getVersion = SDL_GetVersion(ver : SDL_version*) : Void
 	fun getRevision = SDL_GetRevision() : UInt8*
 	fun getRevisionNumber = SDL_GetRevisionNumber() : Int32
-	fun init = SDL_Init(flags : UInt32) : Int32
-	fun initSubSystem = SDL_InitSubSystem(flags : UInt32) : Int32
-	fun quitSubSystem = SDL_QuitSubSystem(flags : UInt32) : Void
+	fun init = SDL_Init(flags : SDL_InitFlags) : Int32
+	fun initSubSystem = SDL_InitSubSystem(flags : SDL_InitFlags) : Int32
+	fun quitSubSystem = SDL_QuitSubSystem(flags : SDL_InitFlags) : Void
 	fun wasInit = SDL_WasInit(flags : UInt32) : UInt32
 	fun quit = SDL_Quit() : Void
 	
