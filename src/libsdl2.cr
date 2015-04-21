@@ -909,7 +909,7 @@ lib LibSDL2
 	end
 	
 	union SDL_Event
-		type : UInt32
+		type : SDL_EventType
 		common : SDL_CommonEvent
 		window : SDL_WindowEvent
 		key : SDL_KeyboardEvent
