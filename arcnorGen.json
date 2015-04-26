@@ -1,0 +1,66 @@
+{
+	"options": {
+		"removePrefix": "SDL_",
+		"outputPath": "src"
+	},
+	"typing": {
+		"collapse": [
+			"Sint8", "Sint16", "Sint32", "Sint64",
+			"Uint8", "Uint16", "Uint32", "Uint64"
+		],
+		"replace": {
+			"SDL_bool": "Bool",
+			"wchar_t": "UInt32",
+			"__va_list_tag": "Void"
+		}
+	},
+	"add": {
+		"enum": {
+			"SD_InitFlags": {
+				"SDL_INIT_TIMER": 1,
+				"SDL_INIT_AUDIO": 16,
+				"SDL_INIT_VIDEO": 32,
+				"SDL_INIT_JOYSTICK": 512,
+				"SDL_INIT_HAPTIC": 4096,
+				"SDL_INIT_GAMECONTROLLER": 8192,
+				"SDL_INIT_EVENTS": 16384,
+				"SDL_INIT_NOPARACHUTE": 1048576
+			}
+		},
+		"typedef": {},
+		"struct": {},
+		"function": {}
+	},
+	"remove": {
+		"enum": [
+			"SDL_DUMMY_ENUM",
+			"SDL_bool"
+		],
+		"typedef": [
+			"SDL_dummy_enum",
+			"SDL_dummy_uint8",
+			"SDL_dummy_uint16",
+			"SDL_dummy_uint32",
+			"SDL_dummy_uint64",
+			"SDL_dummy_sint8",
+			"SDL_dummy_sint16",
+			"SDL_dummy_sint32",
+			"SDL_dummy_sint64"
+		]
+	},
+	"rename": {
+		"struct": {
+			"_SDL_iconv_t": "SDL_iconv_t2",
+			"_SDL_Joystick": "SDL_JoystickInternal",
+			"_SDL_GameController": "SDL_GameControllerInternal",
+			"_SDL_Haptic": "SDL_HapticInternal"
+		}
+	},
+	"generator": {
+		"crystal": {
+			"flags": [
+				"/.*Flags/"
+			]
+		}
+	}
+}
