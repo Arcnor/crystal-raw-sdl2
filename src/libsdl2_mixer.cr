@@ -56,7 +56,7 @@ lib LibSDL2_mixer
 	# Functions #
 	
 	fun linked_version = Mix_Linked_Version() : LibSDL2::Version*
-	fun init = Mix_Init(flags : InitFlags) : Int32
+	fun init = Mix_Init(flags : InitFlags) : InitFlags
 	fun quit = Mix_Quit() : Void
 	fun open_audio = Mix_OpenAudio(frequency : Int32, format : UInt16, channels : Int32, chunksize : Int32) : Int32
 	fun allocate_channels = Mix_AllocateChannels(numchans : Int32) : Int32
