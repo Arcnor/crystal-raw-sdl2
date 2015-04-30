@@ -1,5 +1,7 @@
 {
 	"options": {
+		"libLinkName": "SDL2",
+		"libName": "LibSDL2",
 		"removePrefix": "SDL_",
 		"outputPath": "src"
 	},
@@ -12,11 +14,74 @@
 			"SDL_bool": "Bool",
 			"wchar_t": "UInt32",
 			"__va_list_tag": "Void"
-		}
+		},
+    "retype": {
+      "struct": {
+        "SDL_MessageBoxButtonData": {
+          "flags": "SDL_MessageBoxButtonFlags"
+        },
+        "SDL_MessageBoxData": {
+          "flags": "SDL_MessageBoxFlags"
+        },
+        "SDL_RendererInfo": {
+          "flags": "SDL_RendererFlags"
+        }
+      },
+      "function": {
+        "SDL_CreateWindow": {
+          "args": {
+            "flags": "SDL_WindowFlags"
+          }
+        },
+        "SDL_GetWindowFlags": {
+          "returnType": "SDL_WindowFlags"
+        },
+        "SDL_SetWindowFullscreen": {
+          "args": {
+            "flags": "SDL_WindowFlags"
+          }
+        },
+        "SDL_ShowSimpleMessageBox": {
+          "args": {
+            "flags": "SDL_MessageBoxFlags"
+          }
+        },
+        "SDL_CreateWindowAndRenderer": {
+          "args": {
+            "window_flags": "SDL_WindowFlags"
+          }
+        },
+        "SDL_CreateRenderer": {
+          "args": {
+            "flags": "SDL_RendererFlags"
+          }
+        },
+        "SDL_Init": {
+          "args": {
+            "flags": "SDL_InitFlags"
+          }
+        },
+        "SDL_InitSubSystem": {
+          "args": {
+            "flags": "SDL_InitFlags"
+          }
+        },
+        "SDL_QuitSubSystem": {
+          "args": {
+            "flags": "SDL_InitFlags"
+          }
+        },
+        "SDL_WasInit": {
+          "args": {
+            "flags": "SDL_InitFlags"
+          }
+        }
+      }
+    }
 	},
 	"add": {
 		"enum": {
-			"SD_InitFlags": {
+			"SDL_InitFlags": {
 				"SDL_INIT_TIMER": 1,
 				"SDL_INIT_AUDIO": 16,
 				"SDL_INIT_VIDEO": 32,
@@ -56,6 +121,36 @@
 			"_SDL_Haptic": "SDL_HapticInternal"
 		}
 	},
+  "removePrefix": {
+    "enum": {
+      "SDL_assert_state": "SDL_ASSERTION_",
+      "SDL_ThreadPriority": "SDL_THREAD_PRIORITY_",
+      "SDL_AudioStatus": "SDL_AUDIO_",
+      "SDL_BlendMode": "SDL_BLENDMODE_",
+      "SDL_WindowFlags": "SDL_WINDOW_",
+      "SDL_WindowEventID": "SDL_WINDOWEVENT_",
+      "SDL_GLattr": "SDL_GL_",
+      "SDL_GLprofile": "SDL_GL_CONTEXT_PROFILE_",
+      "SDL_GLcontextFlag": "SDL_GL_CONTEXT_",
+      "SDL_Scancode": "SDL_SCANCODE_",
+      "SDL_Keymod": "KMOD_",
+      "SDL_SystemCursor": "SDL_SYSTEM_CURSOR_",
+      "SDL_GameControllerBindType": "SDL_CONTROLLER_BINDTYPE_",
+      "SDL_GameControllerAxis": "SDL_CONTROLLER_AXIS_",
+      "SDL_GameControllerButton": "SDL_CONTROLLER_BUTTON_",
+      "SDL_HintPriority": "SDL_HINT_",
+      "SDL_LogPriority": "SDL_LOG_PRIORITY_",
+      "SDL_MessageBoxFlags": "SDL_MESSAGEBOX_",
+      "SDL_MessageBoxButtonFlags": "SDL_MESSAGEBOX_BUTTON_",
+      "SDL_MessageBoxColorType": "SDL_MESSAGEBOX_COLOR_",
+      "SDL_PowerState": "SDL_POWERSTATE_",
+      "SDL_RendererFlags": "SDL_RENDERER_",
+      "SDL_TextureAccess": "SDL_TEXTUREACCESS_",
+      "SDL_TextureModulate": "SDL_TEXTUREMODULATE_",
+      "SDL_RendererFlip": "SDL_FLIP_",
+      "SDL_InitFlags": "SDL_INIT_"
+    }
+  },
 	"generator": {
 		"crystal": {
 			"flags": [
