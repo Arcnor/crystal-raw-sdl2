@@ -700,12 +700,12 @@ lib LibSDL2
 	end
 	
 	struct CommonEvent
-		type : UInt32
+		type : EventType
 		timestamp : UInt32
 	end
 	
 	struct WindowEvent
-		type : UInt32
+		type : EventType
 		timestamp : UInt32
 		window_id : UInt32
 		event : UInt8
@@ -717,7 +717,7 @@ lib LibSDL2
 	end
 	
 	struct KeyboardEvent
-		type : UInt32
+		type : EventType
 		timestamp : UInt32
 		window_id : UInt32
 		state : UInt8
@@ -728,7 +728,7 @@ lib LibSDL2
 	end
 	
 	struct TextEditingEvent
-		type : UInt32
+		type : EventType
 		timestamp : UInt32
 		window_id : UInt32
 		text : UInt8[32]
@@ -737,14 +737,14 @@ lib LibSDL2
 	end
 	
 	struct TextInputEvent
-		type : UInt32
+		type : EventType
 		timestamp : UInt32
 		window_id : UInt32
 		text : UInt8[32]
 	end
 	
 	struct MouseMotionEvent
-		type : UInt32
+		type : EventType
 		timestamp : UInt32
 		window_id : UInt32
 		which : UInt32
@@ -756,7 +756,7 @@ lib LibSDL2
 	end
 	
 	struct MouseButtonEvent
-		type : UInt32
+		type : EventType
 		timestamp : UInt32
 		window_id : UInt32
 		which : UInt32
@@ -769,7 +769,7 @@ lib LibSDL2
 	end
 	
 	struct MouseWheelEvent
-		type : UInt32
+		type : EventType
 		timestamp : UInt32
 		window_id : UInt32
 		which : UInt32
@@ -778,7 +778,7 @@ lib LibSDL2
 	end
 	
 	struct JoyAxisEvent
-		type : UInt32
+		type : EventType
 		timestamp : UInt32
 		which : JoystickID
 		axis : UInt8
@@ -790,7 +790,7 @@ lib LibSDL2
 	end
 	
 	struct JoyBallEvent
-		type : UInt32
+		type : EventType
 		timestamp : UInt32
 		which : JoystickID
 		ball : UInt8
@@ -802,7 +802,7 @@ lib LibSDL2
 	end
 	
 	struct JoyHatEvent
-		type : UInt32
+		type : EventType
 		timestamp : UInt32
 		which : JoystickID
 		hat : UInt8
@@ -812,7 +812,7 @@ lib LibSDL2
 	end
 	
 	struct JoyButtonEvent
-		type : UInt32
+		type : EventType
 		timestamp : UInt32
 		which : JoystickID
 		button : UInt8
@@ -822,13 +822,13 @@ lib LibSDL2
 	end
 	
 	struct JoyDeviceEvent
-		type : UInt32
+		type : EventType
 		timestamp : UInt32
 		which : Int32
 	end
 	
 	struct ControllerAxisEvent
-		type : UInt32
+		type : EventType
 		timestamp : UInt32
 		which : JoystickID
 		axis : UInt8
@@ -840,7 +840,7 @@ lib LibSDL2
 	end
 	
 	struct ControllerButtonEvent
-		type : UInt32
+		type : EventType
 		timestamp : UInt32
 		which : JoystickID
 		button : UInt8
@@ -850,13 +850,13 @@ lib LibSDL2
 	end
 	
 	struct ControllerDeviceEvent
-		type : UInt32
+		type : EventType
 		timestamp : UInt32
 		which : Int32
 	end
 	
 	struct TouchFingerEvent
-		type : UInt32
+		type : EventType
 		timestamp : UInt32
 		touch_id : TouchID
 		finger_id : FingerID
@@ -868,7 +868,7 @@ lib LibSDL2
 	end
 	
 	struct MultiGestureEvent
-		type : UInt32
+		type : EventType
 		timestamp : UInt32
 		touch_id : TouchID
 		d_theta : Float32
@@ -880,7 +880,7 @@ lib LibSDL2
 	end
 	
 	struct DollarGestureEvent
-		type : UInt32
+		type : EventType
 		timestamp : UInt32
 		touch_id : TouchID
 		gesture_id : GestureID
@@ -891,13 +891,13 @@ lib LibSDL2
 	end
 	
 	struct DropEvent
-		type : UInt32
+		type : EventType
 		timestamp : UInt32
 		file : UInt8*
 	end
 	
 	struct QuitEvent
-		type : UInt32
+		type : EventType
 		timestamp : UInt32
 	end
 	
@@ -907,7 +907,7 @@ lib LibSDL2
 	end
 	
 	struct UserEvent
-		type : UInt32
+		type : EventType
 		timestamp : UInt32
 		window_id : UInt32
 		code : Int32
@@ -920,13 +920,13 @@ lib LibSDL2
 	end
 	
 	struct SysWMEvent
-		type : UInt32
+		type : EventType
 		timestamp : UInt32
 		msg : SysWMmsg*
 	end
 	
 	union Event
-		type : UInt32
+		type : EventType
 		common : CommonEvent
 		window : WindowEvent
 		key : KeyboardEvent

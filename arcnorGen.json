@@ -25,6 +25,83 @@
         },
         "SDL_RendererInfo": {
           "flags": "SDL_RendererFlags"
+        },
+        "SDL_CommonEvent": {
+          "type": "SDL_EventType"
+        },
+        "SDL_WindowEvent": {
+          "type": "SDL_EventType"
+        },
+        "SDL_KeyboardEvent": {
+          "type": "SDL_EventType"
+        },
+        "SDL_TextEditingEvent": {
+          "type": "SDL_EventType"
+        },
+        "SDL_TextInputEvent": {
+          "type": "SDL_EventType"
+        },
+        "SDL_MouseMotionEvent": {
+          "type": "SDL_EventType"
+        },
+        "SDL_MouseButtonEvent": {
+          "type": "SDL_EventType"
+        },
+        "SDL_MouseWheelEvent": {
+          "type": "SDL_EventType"
+        },
+        "SDL_JoyAxisEvent": {
+          "type": "SDL_EventType"
+        },
+        "SDL_JoyBallEvent": {
+          "type": "SDL_EventType"
+        },
+        "SDL_JoyHatEvent": {
+          "type": "SDL_EventType"
+        },
+        "SDL_JoyButtonEvent": {
+          "type": "SDL_EventType"
+        },
+        "SDL_JoyDeviceEvent": {
+          "type": "SDL_EventType"
+        },
+        "SDL_ControllerAxisEvent": {
+          "type": "SDL_EventType"
+        },
+        "SDL_ControllerButtonEvent": {
+          "type": "SDL_EventType"
+        },
+        "SDL_ControllerDeviceEvent": {
+          "type": "SDL_EventType"
+        },
+        "SDL_AudioDeviceEvent": {
+          "type": "SDL_EventType"
+        },
+        "SDL_QuitEvent": {
+          "type": "SDL_EventType"
+        },
+        "SDL_UserEvent": {
+          "type": "SDL_EventType"
+        },
+        "SDL_SysWMEvent": {
+          "type": "SDL_EventType"
+        },
+        "SDL_TouchFingerEvent": {
+          "type": "SDL_EventType"
+        },
+        "SDL_MultiGestureEvent": {
+          "type": "SDL_EventType"
+        },
+        "SDL_DollarGestureEvent": {
+          "type": "SDL_EventType"
+        },
+        "SDL_DropEvent": {
+          "type": "SDL_EventType"
+        }
+      },
+      "union": {
+        "SDL_Event": {
+          "type": "SDL_EventType"
         }
       },
       "function": {
